@@ -1,0 +1,93 @@
+.overlay-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(16px);
+    background-color: rgba(255, 255, 255, 0.5);
+    /* blanc à 50% */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 10;
+}
+
+body.menu-open .overlay-blur {
+    opacity: 1;
+}
+
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.nav {
+    position: relative;
+    z-index: 20;
+}
+
+.mega-nav {
+    opacity: 0;
+    transform: scaleY(0.95);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    /* ← par défaut, pas cliquable */
+}
+
+.mega-nav.show {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+    /* ← quand visible, cliquable */
+}
+
+/* Characters */
+.btn-animate-chars [data-button-animate-chars] {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+.btn-animate-chars [data-button-animate-chars] span {
+    display: inline-block;
+    position: relative;
+    text-shadow: 0px 1.3em currentColor;
+    transform: translateY(0em) rotate(0.001deg);
+    transition: transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.btn-animate-chars:hover [data-button-animate-chars] span {
+    transform: translateY(-1.3em) rotate(0.001deg);
+}
+
+/* Background */
+.btn-animate-chars__bg {
+    inset: 0;
+    transition: inset 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.btn-animate-chars:hover .btn-animate-chars__bg {
+    inset: 0.125em;
+}
+
+.fade-in-target {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-in-target.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.line-sep {
+    width: 1px;
+    background-color: #E9EBED;
+    /* Mets la couleur de ta ligne */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
