@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -235,4 +234,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // === Start everything ===
   initButtonCharacterStagger();
 });
-</script>
